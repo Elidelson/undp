@@ -6,26 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
-		},
-		"phl_sdgourbiz_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'phl_sdgourbiz'"
-		},
-		"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "67781619-c891-4826-9c79-8286ae9c01fa"
-		},
-		"phl_sdgourbiz_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "b3e5db5e-2944-4837-99f5-7488ace54319"
-		},
-		"undpdigitalopendata_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://undpdigitalopendata.vault.azure.net/"
-		},
-		"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "undpdigitalopendatastorage"
 		}
 	},
 	"variables": {
@@ -149,15 +129,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_sdgourbiz_sdg_target_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_sdgourbiz_sdg_target",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -466,15 +444,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_sdgourbiz_sdgourbiz_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_sdgourbiz_sdgourbiz",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -534,9 +510,7 @@
 					"table": "sdg_target"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/phl_sdgourbiz')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target_csv')]",
@@ -589,9 +563,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz')]",
@@ -731,9 +703,7 @@
 					"table": "sdgourbiz"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/phl_sdgourbiz')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz_csv')]",
@@ -842,69 +812,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('phl_sdgourbiz_connectionString')]",
-					"servicePrincipalId": "[parameters('phl_sdgourbiz_properties_typeProperties_servicePrincipalId')]",
-					"servicePrincipalKey": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "undpdigitalopendata",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "spphldbadmin"
-					},
-					"tenant": "[parameters('phl_sdgourbiz_properties_typeProperties_tenant')]"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/undpdigitalopendata')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('undpdigitalopendata_properties_typeProperties_baseUrl')]"
-				}
-			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/undpdigitalopendatastore')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "undpdigitalopendata",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "[parameters('undpdigitalopendatastore_properties_typeProperties_connectionString_secretName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
-			]
 		}
 	]
 }

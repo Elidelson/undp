@@ -5,6 +5,15 @@
 		"factoryName": {
 			"value": "undpopendata-df"
 		},
+		"phl_sdgourbiz_connectionString": {
+			"value": ""
+		},
+		"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
+			"value": "67781619-c891-4826-9c79-8286ae9c01fa"
+		},
+		"phl_sdgourbiz_properties_typeProperties_tenant": {
+			"value": "b3e5db5e-2944-4837-99f5-7488ace54319"
+		},
 		"undpdigitalopendata_properties_typeProperties_baseUrl": {
 			"value": "https://undpdigitalopendata.vault.azure.net/"
 		},

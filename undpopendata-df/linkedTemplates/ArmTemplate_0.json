@@ -7,9 +7,21 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
 		},
+		"phl_sdgourbiz_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'phl_sdgourbiz'"
+		},
 		"undpdigitalopendata_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://undpdigitalopendata.vault.azure.net/"
+		},
+		"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "67781619-c891-4826-9c79-8286ae9c01fa"
+		},
+		"phl_sdgourbiz_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "b3e5db5e-2944-4837-99f5-7488ace54319"
 		},
 		"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
@@ -34,6 +46,31 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('phl_sdgourbiz_connectionString')]",
+					"servicePrincipalId": "[parameters('phl_sdgourbiz_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalKey": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "undpdigitalopendata",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "spphldbadmin"
+					},
+					"tenant": "[parameters('phl_sdgourbiz_properties_typeProperties_tenant')]"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/undpdigitalopendatastore')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -53,6 +90,820 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "phl_sdgourbiz",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "goal_number",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "goal_description",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "target_number",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "target_description",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "indicator_number",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "sdg_target"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/phl_sdgourbiz')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "sdg_targets.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
+						"container": "opendataphl"
+					},
+					"columnDelimiter": ",",
+					"rowDelimiter": "\n",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "goal_number",
+						"type": "String"
+					},
+					{
+						"name": "goal_description",
+						"type": "String"
+					},
+					{
+						"name": "target_number",
+						"type": "String"
+					},
+					{
+						"name": "target_description",
+						"type": "String"
+					},
+					{
+						"name": "indicator_number",
+						"type": "String"
+					},
+					{
+						"name": "indicator_description",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "phl_sdgourbiz",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Conglomorate",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Company",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Initiative",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Narrative",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Topics",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Aspect",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "barangay_code_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "score_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "barangay_name",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "province_name_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "province_code_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "municity_name_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "municity_code_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "barangay_name_res",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Target",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Source",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "CSR_Core_Business",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "Location",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "province_name",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "municity_name",
+						"type": "varchar",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "sdgourbiz"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/phl_sdgourbiz')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "sdgourbiz.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
+						"container": "opendataphl"
+					},
+					"columnDelimiter": ",",
+					"rowDelimiter": "\n",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Conglomorate",
+						"type": "String"
+					},
+					{
+						"name": "Company",
+						"type": "String"
+					},
+					{
+						"name": "Initiative",
+						"type": "String"
+					},
+					{
+						"name": "Narrative",
+						"type": "String"
+					},
+					{
+						"name": "Topics",
+						"type": "String"
+					},
+					{
+						"name": "Aspect",
+						"type": "String"
+					},
+					{
+						"name": "Target",
+						"type": "String"
+					},
+					{
+						"name": "Source",
+						"type": "String"
+					},
+					{
+						"name": "CSR/Core Business",
+						"type": "String"
+					},
+					{
+						"name": "Location",
+						"type": "String"
+					},
+					{
+						"name": "province_name",
+						"type": "String"
+					},
+					{
+						"name": "municity_name",
+						"type": "String"
+					},
+					{
+						"name": "barangay_name",
+						"type": "String"
+					},
+					{
+						"name": "province_name_res",
+						"type": "String"
+					},
+					{
+						"name": "province_code_res",
+						"type": "String"
+					},
+					{
+						"name": "municity_name_res",
+						"type": "String"
+					},
+					{
+						"name": "municity_code_res",
+						"type": "String"
+					},
+					{
+						"name": "barangay_name_res",
+						"type": "String"
+					},
+					{
+						"name": "barangay_code_res",
+						"type": "String"
+					},
+					{
+						"name": "score_res",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_sdg_target",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "opendataphl/Shared Documents/Technical/Programme Data/SDGourBIZ/sdg_targets.csv"
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.sdg_target"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "goal_number",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "goal_number",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "goal_description",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "goal_description",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "target_number",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "target_number",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "target_description",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "target_description",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "indicator_number",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "indicator_number",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "phl_sdgourbiz_sdg_target_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "phl_sdgourbiz_sdg_target",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdg_target_csv')]",
+				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdg_target')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_sdgourbiz",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "opendataphl/Shared Documents/Technical/Programme Data/SDGourBIZ/sdgourbiz.csv"
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.sdgourbiz"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Conglomorate",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Conglomorate",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Company",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Company",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Initiative",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Initiative",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Narrative",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Narrative",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Topics",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Topics",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Aspect",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Aspect",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "barangay_code_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "barangay_code_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "score_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "score_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "barangay_name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "barangay_name",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "province_name_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "province_name_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "province_code_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "province_code_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municity_name_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municity_name_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municity_code_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municity_code_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "barangay_name_res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "barangay_name_res",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Target",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Target",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Source",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Source",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "CSR/Core Business",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CSR_Core_Business",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Location",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Location",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "province_name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "province_name",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "municity_name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "municity_name",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "phl_sdgourbiz_sdgourbiz_csv",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "phl_sdgourbiz_sdgourbiz",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdgourbiz_csv')]",
+				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdgourbiz')]"
 			]
 		}
 	]

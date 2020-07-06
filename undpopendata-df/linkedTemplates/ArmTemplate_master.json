@@ -7,6 +7,18 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
 		},
+		"phl_sdgourbiz_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'phl_sdgourbiz'"
+		},
+		"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "67781619-c891-4826-9c79-8286ae9c01fa"
+		},
+		"phl_sdgourbiz_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "b3e5db5e-2944-4837-99f5-7488ace54319"
+		},
 		"undpdigitalopendata_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://undpdigitalopendata.vault.azure.net/"
@@ -42,8 +54,17 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"phl_sdgourbiz_connectionString": {
+						"value": "[parameters('phl_sdgourbiz_connectionString')]"
+					},
 					"undpdigitalopendata_properties_typeProperties_baseUrl": {
 						"value": "[parameters('undpdigitalopendata_properties_typeProperties_baseUrl')]"
+					},
+					"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('phl_sdgourbiz_properties_typeProperties_servicePrincipalId')]"
+					},
+					"phl_sdgourbiz_properties_typeProperties_tenant": {
+						"value": "[parameters('phl_sdgourbiz_properties_typeProperties_tenant')]"
 					},
 					"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('undpdigitalopendatastore_properties_typeProperties_connectionString_secretName')]"
