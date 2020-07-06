@@ -1,0 +1,17 @@
+{
+	"name": "undpdigitalopendatastore",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "undpdigitalopendata",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "undpdigitalopendatastorage"
+			}
+		}
+	}
+}
