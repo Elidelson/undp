@@ -26,6 +26,10 @@
 		"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "undpdigitalopendatastorage"
+		},
+		"PHL-NewBlob_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		}
 	},
 	"variables": {
@@ -904,6 +908,36 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PHL-NewBlob')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "phl_sdgourbiz_sdg_target",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/opendataphl/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('PHL-NewBlob_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/phl_sdgourbiz_sdg_target')]"
 			]
 		}
 	]
