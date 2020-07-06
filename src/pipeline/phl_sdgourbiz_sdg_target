@@ -1,0 +1,129 @@
+{
+	"name": "phl_sdgourbiz_sdg_target",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_sdg_target",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "opendataphl/Shared Documents/Technical/Programme Data/SDGourBIZ/sdg_targets.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.sdg_target"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "goal_number",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goal_number",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goal_description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goal_description",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "target_number",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "target_number",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "target_description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "target_description",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "indicator_number",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "indicator_number",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "phl_sdgourbiz_sdg_target_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "phl_sdgourbiz_sdg_target",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
