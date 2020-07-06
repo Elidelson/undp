@@ -12,7 +12,7 @@
 				"type": "AzureBlobStorageLocation",
 				"fileName": "sdgourbiz.csv",
 				"folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
-				"container": "opendataphl"
+				"container": "phl-prog"
 			},
 			"columnDelimiter": ",",
 			"rowDelimiter": "\n",
