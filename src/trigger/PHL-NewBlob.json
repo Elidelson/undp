@@ -9,6 +9,12 @@
 					"referenceName": "phl_sdgourbiz_sdg_target",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "phl_sdgourbiz_sdgourbiz",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "BlobEventsTrigger",
