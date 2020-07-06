@@ -1,0 +1,21 @@
+{
+	"name": "phl_sdgourbiz",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=undpopendata.database.windows.net;Initial Catalog=phl_sdgourbiz",
+			"servicePrincipalId": "67781619-c891-4826-9c79-8286ae9c01fa",
+			"servicePrincipalKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "undpdigitalopendata",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "spphldbadmin"
+			},
+			"tenant": "b3e5db5e-2944-4837-99f5-7488ace54319"
+		}
+	}
+}
