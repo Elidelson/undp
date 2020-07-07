@@ -1,0 +1,57 @@
+{
+	"name": "phl_prog_sdg_dashboard",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "undpdigitalopendatastore",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "undpph_sdg_dashboard_data.csv",
+				"folderPath": "Shared Documents/Technical/Programme Data/SDG Dashboard",
+				"container": "phl-prog"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "REG_PSGC",
+				"type": "String"
+			},
+			{
+				"name": "REGION",
+				"type": "String"
+			},
+			{
+				"name": "PROV_PSGC",
+				"type": "String"
+			},
+			{
+				"name": "PROVINCE",
+				"type": "String"
+			},
+			{
+				"name": "MUNCITY_PSGC",
+				"type": "String"
+			},
+			{
+				"name": "MUNCITY_NAME",
+				"type": "String"
+			},
+			{
+				"name": "variable",
+				"type": "String"
+			},
+			{
+				"name": "value",
+				"type": "String"
+			}
+		]
+	}
+}
