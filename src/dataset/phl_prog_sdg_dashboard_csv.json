@@ -1,5 +1,5 @@
 {
-	"name": "phl_sdgourbiz_sdg_target_csv",
+	"name": "phl_prog_sdg_dashboard_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "undpdigitalopendatastore",
@@ -10,39 +10,46 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "sdg_targets.csv",
-				"folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
+				"fileName": "undpph_sdg_dashboard_data.csv",
+				"folderPath": "Shared Documents/Technical/Programme Data/SDG Dashboard",
 				"container": "phl-prog"
 			},
 			"columnDelimiter": ",",
-			"rowDelimiter": "\n",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
-				"name": "goal_number",
+				"name": "REG_PSGC",
 				"type": "String"
 			},
 			{
-				"name": "goal_description",
+				"name": "REGION",
 				"type": "String"
 			},
 			{
-				"name": "target_number",
+				"name": "PROV_PSGC",
 				"type": "String"
 			},
 			{
-				"name": "target_description",
+				"name": "PROVINCE",
 				"type": "String"
 			},
 			{
-				"name": "indicator_number",
+				"name": "MUNCITY_PSGC",
 				"type": "String"
 			},
 			{
-				"name": "indicator_description",
+				"name": "MUNCITY_NAME",
+				"type": "String"
+			},
+			{
+				"name": "variable",
+				"type": "String"
+			},
+			{
+				"name": "value",
 				"type": "String"
 			}
 		]
