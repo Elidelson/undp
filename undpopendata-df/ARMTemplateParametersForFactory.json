@@ -5,6 +5,12 @@
 		"factoryName": {
 			"value": "undpopendata-df"
 		},
+		"db_phl_opr_connectionString": {
+			"value": ""
+		},
+		"db_phl_prog_connectionString": {
+			"value": ""
+		},
 		"phl_sdgourbiz_connectionString": {
 			"value": ""
 		},

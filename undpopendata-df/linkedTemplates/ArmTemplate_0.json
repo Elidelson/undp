@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
 		},
+		"db_phl_opr_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'db_phl_opr'"
+		},
+		"db_phl_prog_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'db_phl_prog'"
+		},
 		"phl_sdgourbiz_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'phl_sdgourbiz'"
@@ -14,6 +22,10 @@
 		"undpdigitalopendata_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://undpdigitalopendata.vault.azure.net/"
+		},
+		"PHL-NewBlob_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		},
 		"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
@@ -26,16 +38,38 @@
 		"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "undpdigitalopendatastorage"
-		},
-		"PHL-NewBlob_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/db_phl_opr')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('db_phl_opr_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/db_phl_prog')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('db_phl_prog_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/undpdigitalopendata')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -48,6 +82,47 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PHL-NewBlob')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/opendataphl/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('PHL-NewBlob_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_dashboard_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "sdg_dashboard"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz')]",
@@ -97,59 +172,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "phl_sdgourbiz",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "goal_number",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "goal_description",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "target_number",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "target_description",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "indicator_number",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "sdg_target"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/phl_sdgourbiz')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target_csv')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_dashboard_csv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -162,39 +185,46 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "sdg_targets.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
-						"container": "opendataphl"
+						"fileName": "undpph_sdg_dashboard_data.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Dashboard",
+						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
-					"rowDelimiter": "\n",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
-						"name": "goal_number",
+						"name": "REG_PSGC",
 						"type": "String"
 					},
 					{
-						"name": "goal_description",
+						"name": "REGION",
 						"type": "String"
 					},
 					{
-						"name": "target_number",
+						"name": "PROV_PSGC",
 						"type": "String"
 					},
 					{
-						"name": "target_description",
+						"name": "PROVINCE",
 						"type": "String"
 					},
 					{
-						"name": "indicator_number",
+						"name": "MUNCITY_PSGC",
 						"type": "String"
 					},
 					{
-						"name": "indicator_description",
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "variable",
+						"type": "String"
+					},
+					{
+						"name": "value",
 						"type": "String"
 					}
 				]
@@ -204,266 +234,13 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "phl_sdgourbiz",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "Conglomorate",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Company",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Initiative",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Narrative",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Topics",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Aspect",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "barangay_code_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "score_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "barangay_name",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "province_name_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "province_code_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "municity_name_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "municity_code_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "barangay_name_res",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Target",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Source",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "CSR_Core_Business",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "Location",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "province_name",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "municity_name",
-						"type": "varchar",
-						"precision": 0,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "sdgourbiz"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/phl_sdgourbiz')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz_csv')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "undpdigitalopendatastore",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "sdgourbiz.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
-						"container": "opendataphl"
-					},
-					"columnDelimiter": ",",
-					"rowDelimiter": "\n",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "Conglomorate",
-						"type": "String"
-					},
-					{
-						"name": "Company",
-						"type": "String"
-					},
-					{
-						"name": "Initiative",
-						"type": "String"
-					},
-					{
-						"name": "Narrative",
-						"type": "String"
-					},
-					{
-						"name": "Topics",
-						"type": "String"
-					},
-					{
-						"name": "Aspect",
-						"type": "String"
-					},
-					{
-						"name": "Target",
-						"type": "String"
-					},
-					{
-						"name": "Source",
-						"type": "String"
-					},
-					{
-						"name": "CSR/Core Business",
-						"type": "String"
-					},
-					{
-						"name": "Location",
-						"type": "String"
-					},
-					{
-						"name": "province_name",
-						"type": "String"
-					},
-					{
-						"name": "municity_name",
-						"type": "String"
-					},
-					{
-						"name": "barangay_name",
-						"type": "String"
-					},
-					{
-						"name": "province_name_res",
-						"type": "String"
-					},
-					{
-						"name": "province_code_res",
-						"type": "String"
-					},
-					{
-						"name": "municity_name_res",
-						"type": "String"
-					},
-					{
-						"name": "municity_code_res",
-						"type": "String"
-					},
-					{
-						"name": "barangay_name_res",
-						"type": "String"
-					},
-					{
-						"name": "barangay_code_res",
-						"type": "String"
-					},
-					{
-						"name": "score_res",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdg_target')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy_sdg_target",
+						"name": "Copy SDG Dashboard",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -473,16 +250,7 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "opendataphl/Shared Documents/Technical/Programme Data/SDGourBIZ/sdg_targets.csv"
-							},
-							{
-								"name": "Destination",
-								"value": "dbo.sdg_target"
-							}
-						],
+						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "DelimitedTextSource",
@@ -491,12 +259,12 @@
 									"recursive": true
 								},
 								"formatSettings": {
-									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 0
+									"type": "DelimitedTextReadSettings"
 								}
 							},
 							"sink": {
-								"type": "AzureSqlSink"
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
 							},
 							"enableStaging": false,
 							"translator": {
@@ -504,62 +272,90 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "goal_number",
+											"name": "REG_PSGC",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "goal_number",
-											"type": "String",
-											"physicalType": "varchar"
+											"name": "REG_PSGC",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"name": "goal_description",
+											"name": "REGION",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "goal_description",
-											"type": "String",
-											"physicalType": "varchar"
+											"name": "REGION",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"name": "target_number",
+											"name": "PROV_PSGC",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "target_number",
-											"type": "String",
-											"physicalType": "varchar"
+											"name": "PROV_PSGC",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"name": "target_description",
+											"name": "PROVINCE",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "target_description",
-											"type": "String",
-											"physicalType": "varchar"
+											"name": "PROVINCE",
+											"type": "String"
 										}
 									},
 									{
 										"source": {
-											"name": "indicator_number",
+											"name": "MUNCITY_PSGC",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "indicator_number",
+											"name": "MUNCITY_PSGC",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MUNCITY_NAME",
 											"type": "String",
-											"physicalType": "varchar"
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "MUNCITY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "variable",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "variable",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "value",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "value",
+											"type": "String"
 										}
 									}
 								],
@@ -572,14 +368,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "phl_sdgourbiz_sdg_target_csv",
+								"referenceName": "phl_prog_sdg_dashboard_csv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "phl_sdgourbiz_sdg_target",
+								"referenceName": "phl_prog_sdg_dashboard_tbl",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -589,363 +385,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdg_target_csv')]",
-				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdg_target')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_sdgourbiz_sdgourbiz')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_sdgourbiz",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "opendataphl/Shared Documents/Technical/Programme Data/SDGourBIZ/sdgourbiz.csv"
-							},
-							{
-								"name": "Destination",
-								"value": "dbo.sdgourbiz"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 0
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "Conglomorate",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Conglomorate",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Company",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Company",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Initiative",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Initiative",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Narrative",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Narrative",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Topics",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Topics",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Aspect",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Aspect",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "barangay_code_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "barangay_code_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "score_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "score_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "barangay_name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "barangay_name",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "province_name_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "province_name_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "province_code_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "province_code_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "municity_name_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "municity_name_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "municity_code_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "municity_code_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "barangay_name_res",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "barangay_name_res",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Target",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Target",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Source",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Source",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "CSR/Core Business",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "CSR_Core_Business",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Location",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Location",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "province_name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "province_name",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"name": "municity_name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "municity_name",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "phl_sdgourbiz_sdgourbiz_csv",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "phl_sdgourbiz_sdgourbiz",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdgourbiz_csv')]",
-				"[concat(variables('factoryId'), '/datasets/phl_sdgourbiz_sdgourbiz')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PHL-NewBlob')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "phl_sdgourbiz_sdg_target",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "phl_sdgourbiz_sdgourbiz",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/opendataphl/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('PHL-NewBlob_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/phl_sdgourbiz_sdg_target')]",
-				"[concat(variables('factoryId'), '/pipelines/phl_sdgourbiz_sdgourbiz')]"
+				"[concat(variables('factoryId'), '/datasets/phl_prog_sdg_dashboard_csv')]",
+				"[concat(variables('factoryId'), '/datasets/phl_prog_sdg_dashboard_tbl')]"
 			]
 		}
 	]

@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
 		},
+		"db_phl_opr_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'db_phl_opr'"
+		},
+		"db_phl_prog_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'db_phl_prog'"
+		},
 		"phl_sdgourbiz_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'phl_sdgourbiz'"
@@ -58,11 +66,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"db_phl_opr_connectionString": {
+						"value": "[parameters('db_phl_opr_connectionString')]"
+					},
+					"db_phl_prog_connectionString": {
+						"value": "[parameters('db_phl_prog_connectionString')]"
+					},
 					"phl_sdgourbiz_connectionString": {
 						"value": "[parameters('phl_sdgourbiz_connectionString')]"
 					},
 					"undpdigitalopendata_properties_typeProperties_baseUrl": {
 						"value": "[parameters('undpdigitalopendata_properties_typeProperties_baseUrl')]"
+					},
+					"PHL-NewBlob_properties_typeProperties_scope": {
+						"value": "[parameters('PHL-NewBlob_properties_typeProperties_scope')]"
 					},
 					"phl_sdgourbiz_properties_typeProperties_servicePrincipalId": {
 						"value": "[parameters('phl_sdgourbiz_properties_typeProperties_servicePrincipalId')]"
@@ -72,9 +89,6 @@
 					},
 					"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('undpdigitalopendatastore_properties_typeProperties_connectionString_secretName')]"
-					},
-					"PHL-NewBlob_properties_typeProperties_scope": {
-						"value": "[parameters('PHL-NewBlob_properties_typeProperties_scope')]"
 					}
 				}
 			},
