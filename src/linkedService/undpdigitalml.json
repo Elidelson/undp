@@ -1,0 +1,22 @@
+{
+	"name": "undpdigitalml",
+	"properties": {
+		"annotations": [],
+		"type": "AzureMLService",
+		"typeProperties": {
+			"subscriptionId": "1c766f37-8740-4764-932c-bf96cbb29a39",
+			"resourceGroupName": "undpdigitalml",
+			"mlWorkspaceName": "undpdigitalmlws",
+			"servicePrincipalId": "814c3c10-455e-4b6f-935b-0554d5f32db0",
+			"servicePrincipalKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "undpdigitalopendata",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "spundpdigitalmlws"
+			},
+			"tenant": "b3e5db5e-2944-4837-99f5-7488ace54319"
+		}
+	}
+}
