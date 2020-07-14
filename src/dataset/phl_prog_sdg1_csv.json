@@ -1,0 +1,69 @@
+{
+	"name": "phl_prog_sdg1_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "undpdigitalopendatastore",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SDG1_2009-2015_Poverty_Incidence.csv",
+				"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+				"container": "phl-prog"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MUNCITY_PSGC",
+				"type": "String"
+			},
+			{
+				"name": "CODE",
+				"type": "String"
+			},
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "REGION",
+				"type": "String"
+			},
+			{
+				"name": "PROVINCE",
+				"type": "String"
+			},
+			{
+				"name": "MUNCITY",
+				"type": "String"
+			},
+			{
+				"name": "2009_Poverty_in_percent",
+				"type": "String"
+			},
+			{
+				"name": "2012_Poverty_in_percent",
+				"type": "String"
+			},
+			{
+				"name": "2015_Poverty_in_percent",
+				"type": "String"
+			},
+			{
+				"name": "MUNCITY_NAME",
+				"type": "String"
+			},
+			{
+				"name": "MUNCITY_ALT",
+				"type": "String"
+			}
+		]
+	}
+}
