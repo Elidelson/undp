@@ -27,7 +27,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "MINSTYPE_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
@@ -135,7 +135,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "MMPROF_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
@@ -659,7 +659,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "MPWDTYPE_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",

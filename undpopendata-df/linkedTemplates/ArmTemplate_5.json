@@ -31,7 +31,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "TRANSPO2_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
@@ -147,7 +147,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "TRANSPO_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
@@ -263,7 +263,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "WASTE2_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
@@ -375,7 +375,7 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "WASTE_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
 						"container": "phl-prog"
 					},
 					"columnDelimiter": ",",
