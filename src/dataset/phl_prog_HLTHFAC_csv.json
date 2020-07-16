@@ -11,7 +11,7 @@
       "location": {
         "type": "AzureBlobStorageLocation",
         "fileName": "HLTHFAC_GRP.csv",
-        "folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+        "folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
         "container": "phl-prog"
       },
       "columnDelimiter": ",",
