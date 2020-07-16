@@ -1,0 +1,1944 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "undpopendata-df"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "MEAT_GRP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "Province_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MunCity_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "__sdc_primary_key",
+						"type": "String"
+					},
+					{
+						"name": "_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "_creator_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_date",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_ordinal_number",
+						"type": "String"
+					},
+					{
+						"name": "_parent_auri",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_batched_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "String"
+					},
+					{
+						"name": "_top_level_auri",
+						"type": "String"
+					},
+					{
+						"name": "_uri",
+						"type": "String"
+					},
+					{
+						"name": "meat_o",
+						"type": "String"
+					},
+					{
+						"name": "meatcons",
+						"type": "String"
+					},
+					{
+						"name": "meatconskg",
+						"type": "String"
+					},
+					{
+						"name": "meatlbl",
+						"type": "String"
+					},
+					{
+						"name": "meatpos",
+						"type": "String"
+					},
+					{
+						"name": "meatprodcost",
+						"type": "String"
+					},
+					{
+						"name": "meatprodinc",
+						"type": "String"
+					},
+					{
+						"name": "meatsold",
+						"type": "String"
+					},
+					{
+						"name": "meatsoldkg",
+						"type": "String"
+					},
+					{
+						"name": "meatval",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MINSTYPE_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "MINSTYPE_GRP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "Province_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MunCity_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "__sdc_primary_key",
+						"type": "String"
+					},
+					{
+						"name": "_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "_creator_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_date",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_ordinal_number",
+						"type": "String"
+					},
+					{
+						"name": "_parent_auri",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_batched_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "String"
+					},
+					{
+						"name": "_top_level_auri",
+						"type": "String"
+					},
+					{
+						"name": "_uri",
+						"type": "String"
+					},
+					{
+						"name": "minstypelbl",
+						"type": "String"
+					},
+					{
+						"name": "minstypepos",
+						"type": "String"
+					},
+					{
+						"name": "minstypeval",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MMPROF_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "MMPROF_GRP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "Province_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MunCity_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "__sdc_primary_key",
+						"type": "String"
+					},
+					{
+						"name": "_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "_creator_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_date",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_ordinal_number",
+						"type": "String"
+					},
+					{
+						"name": "_parent_auri",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_batched_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "String"
+					},
+					{
+						"name": "_top_level_auri",
+						"type": "String"
+					},
+					{
+						"name": "_uri",
+						"type": "String"
+					},
+					{
+						"name": "age",
+						"type": "String"
+					},
+					{
+						"name": "agedec",
+						"type": "String"
+					},
+					{
+						"name": "agemo",
+						"type": "String"
+					},
+					{
+						"name": "ageyr",
+						"type": "String"
+					},
+					{
+						"name": "bdate",
+						"type": "String"
+					},
+					{
+						"name": "bdate_raw",
+						"type": "String"
+					},
+					{
+						"name": "bday_know",
+						"type": "String"
+					},
+					{
+						"name": "birthreg",
+						"type": "String"
+					},
+					{
+						"name": "citizen",
+						"type": "String"
+					},
+					{
+						"name": "citizen_o",
+						"type": "String"
+					},
+					{
+						"name": "civstat",
+						"type": "String"
+					},
+					{
+						"name": "cntry",
+						"type": "String"
+					},
+					{
+						"name": "colcourse",
+						"type": "String"
+					},
+					{
+						"name": "educ",
+						"type": "String"
+					},
+					{
+						"name": "educhi",
+						"type": "String"
+					},
+					{
+						"name": "educhi2",
+						"type": "String"
+					},
+					{
+						"name": "educlevel",
+						"type": "String"
+					},
+					{
+						"name": "educlevel2",
+						"type": "String"
+					},
+					{
+						"name": "est_age",
+						"type": "String"
+					},
+					{
+						"name": "ethnic",
+						"type": "String"
+					},
+					{
+						"name": "ethnic_o",
+						"type": "String"
+					},
+					{
+						"name": "indust",
+						"type": "String"
+					},
+					{
+						"name": "indust_o",
+						"type": "String"
+					},
+					{
+						"name": "job",
+						"type": "String"
+					},
+					{
+						"name": "jobbsns",
+						"type": "String"
+					},
+					{
+						"name": "jstatus",
+						"type": "String"
+					},
+					{
+						"name": "lengthres",
+						"type": "String"
+					},
+					{
+						"name": "literacy",
+						"type": "String"
+					},
+					{
+						"name": "madrasah",
+						"type": "String"
+					},
+					{
+						"name": "mfname",
+						"type": "String"
+					},
+					{
+						"name": "mfulname",
+						"type": "String"
+					},
+					{
+						"name": "mlname",
+						"type": "String"
+					},
+					{
+						"name": "mmname",
+						"type": "String"
+					},
+					{
+						"name": "mmpos",
+						"type": "String"
+					},
+					{
+						"name": "mofw",
+						"type": "String"
+					},
+					{
+						"name": "mreln",
+						"type": "String"
+					},
+					{
+						"name": "mrelncode",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_addwork",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_brgy",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_elecpos",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_first",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_gsis",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_hrswrkd",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_jobavlbl",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_jobsrchmeth",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_jobsrchmeth_o",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_jobwill",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_lastlukjob",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_localelec",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_lukjob",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_memins",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_memorg",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_minstype_grp_count",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_minstypect",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_morhrs",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_mpwdfltr",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_mpwdtype_grp_count",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_mpwdtypect",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_msolo",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_muncity",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_othjob",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_othjobhwmny",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_phlhlth",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_phlhlthdep",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_phlhlthmemtype",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_preg",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_prov",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_pwdid",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_regn",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_regvote",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_seniorid",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_soloid",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_sss",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_tothrswrkd",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_votelast",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_votelastpres",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_wage_grp_wagescsh",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_wage_grp_wagesknd",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_wage_grp_wagetotal",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_wkslukjob",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_workarea",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_workcl",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_wrkbrgy",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_wrkhrs",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_ylonghrs",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_ylonghrs_o",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_ynotwork",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_ynotwork_o",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_yrran",
+						"type": "String"
+					},
+					{
+						"name": "nonofw_grp_yrran_raw",
+						"type": "String"
+					},
+					{
+						"name": "occup",
+						"type": "String"
+					},
+					{
+						"name": "occup_o",
+						"type": "String"
+					},
+					{
+						"name": "prevres",
+						"type": "String"
+					},
+					{
+						"name": "relgn",
+						"type": "String"
+					},
+					{
+						"name": "relgn_o",
+						"type": "String"
+					},
+					{
+						"name": "res_grp_resdec",
+						"type": "String"
+					},
+					{
+						"name": "res_grp_resmo",
+						"type": "String"
+					},
+					{
+						"name": "res_grp_resyr",
+						"type": "String"
+					},
+					{
+						"name": "schtype",
+						"type": "String"
+					},
+					{
+						"name": "sex",
+						"type": "String"
+					},
+					{
+						"name": "skills",
+						"type": "String"
+					},
+					{
+						"name": "skillsevr",
+						"type": "String"
+					},
+					{
+						"name": "skillshwmny",
+						"type": "String"
+					},
+					{
+						"name": "toril",
+						"type": "String"
+					},
+					{
+						"name": "track",
+						"type": "String"
+					},
+					{
+						"name": "ynotsch",
+						"type": "String"
+					},
+					{
+						"name": "ynotsch_o",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MPWDTYPE_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "MPWDTYPE_GRP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "Province_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MunCity_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "__sdc_primary_key",
+						"type": "String"
+					},
+					{
+						"name": "_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "_creator_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_date",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_ordinal_number",
+						"type": "String"
+					},
+					{
+						"name": "_parent_auri",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_batched_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "String"
+					},
+					{
+						"name": "_top_level_auri",
+						"type": "String"
+					},
+					{
+						"name": "_uri",
+						"type": "String"
+					},
+					{
+						"name": "mpwdtype_o",
+						"type": "String"
+					},
+					{
+						"name": "mpwdtypelbl",
+						"type": "String"
+					},
+					{
+						"name": "mpwdtypepos",
+						"type": "String"
+					},
+					{
+						"name": "mpwdtypeval",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG10_FIES_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG10_FIES.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "approx_num_fam_below_ave_inc",
+						"type": "String"
+					},
+					{
+						"name": "Families Total",
+						"type": "String"
+					},
+					{
+						"name": "Prop_Approximate_Below_Avg_Income",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG11_Housing_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG11_Housing.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "squat_prop",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG12_SWM_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG12_SWM.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "RES_NUM",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG13_CLUP_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG13_CLUP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "CLUP Status",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG14_Protected_Waters_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG14_Protected_Waters.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "area_ha_mun",
+						"type": "String"
+					},
+					{
+						"name": "area_ha_munprotected",
+						"type": "String"
+					},
+					{
+						"name": "prop_marine_area_protected",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG15_Forest_Coverage_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG15_Forest_Coverage.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "forest_area_prop",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG16_2009-2018_IRA_Dependency_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG16_2009-2018_IRA_Dependency.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY",
+						"type": "String"
+					},
+					{
+						"name": "2009",
+						"type": "String"
+					},
+					{
+						"name": "2010",
+						"type": "String"
+					},
+					{
+						"name": "2011",
+						"type": "String"
+					},
+					{
+						"name": "2012",
+						"type": "String"
+					},
+					{
+						"name": "2013",
+						"type": "String"
+					},
+					{
+						"name": "2014",
+						"type": "String"
+					},
+					{
+						"name": "2015",
+						"type": "String"
+					},
+					{
+						"name": "2016",
+						"type": "String"
+					},
+					{
+						"name": "2017",
+						"type": "String"
+					},
+					{
+						"name": "2018",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_ALT",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG17_Sister_Cities_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG17_Sister_Cities.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "CODE",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY",
+						"type": "String"
+					},
+					{
+						"name": "SISTER CITIES",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_ALT",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG1_2009-2015_Poverty_Incidence_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG1_2009-2015_Poverty_Incidence.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "CODE",
+						"type": "String"
+					},
+					{
+						"name": "ID",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY",
+						"type": "String"
+					},
+					{
+						"name": "2009_Poverty_in_percent",
+						"type": "String"
+					},
+					{
+						"name": "2012_Poverty_in_percent",
+						"type": "String"
+					},
+					{
+						"name": "2015_Poverty_in_percent",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_ALT",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG2_OTP_2017_Underweight_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG2_OTP_2017_Underweight.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL PS WEIGHTED",
+						"type": "String"
+					},
+					{
+						"name": "NORMAL WEIGHT",
+						"type": "String"
+					},
+					{
+						"name": "UNDERWEIGHT",
+						"type": "String"
+					},
+					{
+						"name": "SEVERELY UNDERWEIGHT",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL UNDERWEIGHT",
+						"type": "String"
+					},
+					{
+						"name": "OVERWEIGHT",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_ALT",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROPORTION_UNDERWEIGHT",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG3_2018_Births_By_Attendant_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG3_2018_Births_By_Attendant.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY",
+						"type": "String"
+					},
+					{
+						"name": "HEALTH PROFESSIONAL",
+						"type": "String"
+					},
+					{
+						"name": "TRADITIONAL BIRTH ATTENDANTS",
+						"type": "String"
+					},
+					{
+						"name": "OTHERS",
+						"type": "String"
+					},
+					{
+						"name": "NOT STATED",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_ALT",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROPORTION_HEALTH_PROFESSIONAL",
+						"type": "String"
+					},
+					{
+						"name": "PROPORTION_NOT_HEALTH_PROFESSIONAL",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG4_School_Age_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG4_School_Age.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "CODE",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_POOR_6TO30",
+						"type": "String"
+					},
+					{
+						"name": "ELEMENTARY",
+						"type": "String"
+					},
+					{
+						"name": "ELEM_SCHOOLING",
+						"type": "String"
+					},
+					{
+						"name": "HIGHSCHOOL",
+						"type": "String"
+					},
+					{
+						"name": "HIGH_SCHOOLING",
+						"type": "String"
+					},
+					{
+						"name": "COLLEGE",
+						"type": "String"
+					},
+					{
+						"name": "COLG_SCHOOLING",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL_ELEM_HIGH",
+						"type": "String"
+					},
+					{
+						"name": "NOT_SCHOOLING",
+						"type": "String"
+					},
+					{
+						"name": "OSY",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG5_Gender_Proportion_of_Elected_Officials.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY",
+						"type": "String"
+					},
+					{
+						"name": "PROVINCE",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "PERCENTAGE OF MALE MEMBERS OF CITY COUNCIL (2019 ELECTIONS)",
+						"type": "String"
+					},
+					{
+						"name": "PERCENTAGE OF FEMALE MEMBERS OF CITY COUNCIL (2019 ELECTIONS)",
+						"type": "String"
+					},
+					{
+						"name": "NOTABLE FEMALE POLITICIANS",
+						"type": "String"
+					},
+					{
+						"name": "LVM",
+						"type": "String"
+					},
+					{
+						"name": "CLASS",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_NAME",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_ALT",
+						"type": "String"
+					},
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "PROV_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG6_WaterSupply_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG6_WaterSupply.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "CODE",
+						"type": "String"
+					},
+					{
+						"name": "OWNED_COMMUNITY",
+						"type": "String"
+					},
+					{
+						"name": "SHARED_COMMUNITY",
+						"type": "String"
+					},
+					{
+						"name": "OWNED_PIPED_WELL",
+						"type": "String"
+					},
+					{
+						"name": "SHARED_PIPED_WELL",
+						"type": "String"
+					},
+					{
+						"name": "DUG_WELL",
+						"type": "String"
+					},
+					{
+						"name": "SPRING_RIVER",
+						"type": "String"
+					},
+					{
+						"name": "RAIN",
+						"type": "String"
+					},
+					{
+						"name": "PEDDLER",
+						"type": "String"
+					},
+					{
+						"name": "WO_ACCESS_DRINKING_SOURCES",
+						"type": "String"
+					},
+					{
+						"name": "PERCENT_WITHOUT_ACCESS_TO_WATER",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG7_Electricity_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG7_Electricity.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "MUNCITY_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "CODE",
+						"type": "String"
+					},
+					{
+						"name": "W_ELECTRICITY",
+						"type": "String"
+					},
+					{
+						"name": "WO_ELECTRICTY",
+						"type": "String"
+					},
+					{
+						"name": "PROPORTION_WITHOUT_ELECTRICITY",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG8_2019_Employment_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SDG8_2019_Employment.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "REG_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "CODE",
+						"type": "String"
+					},
+					{
+						"name": "REGION",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL POPULATION 15 YEARS OLD AND OVER",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL LABOR FORCE",
+						"type": "String"
+					},
+					{
+						"name": "EMPLOYED",
+						"type": "String"
+					},
+					{
+						"name": "UNEMPLOYED",
+						"type": "String"
+					},
+					{
+						"name": "NOT IN THE LABOR FORCE",
+						"type": "String"
+					},
+					{
+						"name": "UNEMPLOYMENT_RATE",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		}
+	]
+}

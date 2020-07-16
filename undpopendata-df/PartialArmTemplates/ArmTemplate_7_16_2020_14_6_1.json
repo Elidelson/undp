@@ -6,46 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
-		},
-		"db_phl_opr_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'db_phl_opr'"
-		},
-		"db_phl_prog_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'db_phl_prog'"
-		},
-		"undpdigitalml_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "1c766f37-8740-4764-932c-bf96cbb29a39"
-		},
-		"undpdigitalml_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "undpdigitalml"
-		},
-		"undpdigitalml_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "814c3c10-455e-4b6f-935b-0554d5f32db0"
-		},
-		"undpdigitalml_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "b3e5db5e-2944-4837-99f5-7488ace54319"
-		},
-		"undpdigitalopendata_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://undpdigitalopendata.vault.azure.net/"
-		},
-		"undpdigitalopendatastore_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "undpdigitalopendatastorage"
-		},
-		"phl_opr_trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
-		},
-		"phl_prog_trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		}
 	},
 	"variables": {
@@ -188,15 +148,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_sdg_dashboard_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_sdg_dashboard_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -297,15 +255,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_logod_responses_v2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_logod_responses_v2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -626,15 +582,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_ppms_psgc_v1_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_ppms_psgc_v1_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -724,15 +678,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG11_Housing_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG11_Housing_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -899,15 +851,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG1_2009-2015_Poverty_Incidence_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG1_2009-2015_Poverty_Incidence_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -1030,15 +980,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG13_CLUP_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG13_CLUP_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -1172,15 +1120,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG17_Sister_Cities_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG17_Sister_Cities_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -1380,15 +1326,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG3_2018_Births_By_Attendant_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG3_2018_Births_By_Attendant_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -1566,15 +1510,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG6_WaterSupply_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG6_WaterSupply_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -1675,15 +1617,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG10_FIES_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG10_FIES_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -1784,15 +1724,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG12_SWM_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG12_SWM_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2003,15 +1941,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG2_OTP_2017_Underweight_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG2_OTP_2017_Underweight_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2189,15 +2125,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG4_School_Age_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG4_School_Age_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2386,15 +2320,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2583,15 +2515,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG9_Manufacturing_Percent_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG9_Manufacturing_Percent_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2692,15 +2622,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG15_Forest_Coverage_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG15_Forest_Coverage_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2801,15 +2729,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG7_Electricity_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG7_Electricity_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -2954,15 +2880,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG14_Protected_Waters_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG14_Protected_Waters_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -3184,15 +3108,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG16_2009-2018_IRA_Dependency_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG16_2009-2018_IRA_Dependency_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -3337,15 +3259,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_SDG8_2019_Employment_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_SDG8_2019_Employment_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -3776,15 +3696,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_CALAM_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_CALAM_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -4061,15 +3979,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_DPK_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_DPK_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -4324,15 +4240,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_AQUAFARM_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_AQUAFARM_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -4609,15 +4523,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_ECOLOSS_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_ECOLOSS_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -4982,15 +4894,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_FISHTYPE2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_FISHTYPE2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -5256,15 +5166,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_MINSTYPE_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_MINSTYPE_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -5552,15 +5460,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_TRANSPO2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_TRANSPO2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -5881,15 +5787,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_EGGS_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_EGGS_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -6166,15 +6070,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_MPWDTYPE_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_MPWDTYPE_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -7584,15 +7486,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_MMPROF_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_MMPROF_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -7935,15 +7835,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_MEAT2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_MEAT2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -8231,15 +8129,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_HLTHFAC_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_HLTHFAC_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -8483,15 +8379,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_EWS_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_EWS_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -8768,15 +8662,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_WASTE2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_WASTE2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -8784,8 +8676,6 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/phl_prog_sdg_dashboard_csv')]",
-				"[concat(variables('factoryId'), '/datasets/phl_prog_sdg_dashboard_tbl')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_logod_responses_v2_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_logod_responses_v2_tbl')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_ppms_psgc_v1_csv')]",
@@ -9122,15 +9012,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_DTHSMEM_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_DTHSMEM_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -9396,15 +9284,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_CCDESC2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_CCDESC2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -9681,15 +9567,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_CCDESC_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_CCDESC_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -10032,15 +9916,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_CROPS_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_CROPS_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -10317,15 +10199,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_FLDSURGE_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_FLDSURGE_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -10613,15 +10493,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_TRANSPO_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_TRANSPO_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -10876,15 +10754,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_AQUAFARM2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_AQUAFARM2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -11161,15 +11037,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_DISCUSS_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_DISCUSS_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -11512,15 +11386,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_CROPS2_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_CROPS2_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -14063,15 +13935,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_HMPROF_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_HMPROF_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -14370,15 +14240,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_CALAMAIDSRC_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_CALAMAIDSRC_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -14655,15 +14523,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_WASTE_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_WASTE_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -15006,15 +14872,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_MEAT_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_MEAT_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -15379,15 +15243,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_FISHTYPE_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_FISHTYPE_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -15499,15 +15361,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_sdg_targets_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_sdg_targets_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -15773,15 +15633,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_sdgourbiz_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_sdgourbiz_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -15915,15 +15773,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_sdg_dashboard_data_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_sdg_dashboard_data_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -16013,15 +15869,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_devlive_feedback_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_devlive_feedback_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -16320,15 +16174,13 @@
 						"inputs": [
 							{
 								"referenceName": "phl_prog_devlive_projects_csv",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "phl_prog_devlive_projects_tbl",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -16478,9 +16330,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM2_tbl')]",
@@ -16499,9 +16349,7 @@
 					"table": "AQUAFARM2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM_csv')]",
@@ -16605,9 +16453,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM_tbl')]",
@@ -16626,9 +16472,7 @@
 					"table": "AQUAFARM"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CALAMAIDSRC_csv')]",
@@ -16748,9 +16592,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CALAMAIDSRC_tbl')]",
@@ -16769,9 +16611,7 @@
 					"table": "CALAMAIDSRC"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CALAM_csv')]",
@@ -16939,9 +16779,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CALAM_tbl')]",
@@ -16960,9 +16798,7 @@
 					"table": "CALAM"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CCDESC2_csv')]",
@@ -17070,9 +16906,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CCDESC2_tbl')]",
@@ -17091,9 +16925,7 @@
 					"table": "CCDESC2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CCDESC_csv')]",
@@ -17205,9 +17037,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CCDESC_tbl')]",
@@ -17226,9 +17056,7 @@
 					"table": "CCDESC"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CROPS2_csv')]",
@@ -17364,9 +17192,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CROPS2_tbl')]",
@@ -17385,9 +17211,7 @@
 					"table": "CROPS2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CROPS_csv')]",
@@ -17523,9 +17347,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_CROPS_tbl')]",
@@ -17544,9 +17366,7 @@
 					"table": "CROPS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_DISCUSS_csv')]",
@@ -17658,9 +17478,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_DISCUSS_tbl')]",
@@ -17679,9 +17497,7 @@
 					"table": "DISCUSS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_DPK_csv')]",
@@ -17793,9 +17609,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_DPK_tbl')]",
@@ -17814,9 +17628,7 @@
 					"table": "DPK"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_DTHSMEM_csv')]",
@@ -17924,9 +17736,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_DTHSMEM_tbl')]",
@@ -17945,9 +17755,7 @@
 					"table": "DTHSMEM"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_ECOLOSS_csv')]",
@@ -18059,9 +17867,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_ECOLOSS_tbl')]",
@@ -18080,9 +17886,7 @@
 					"table": "ECOLOSS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_EGGS_csv')]",
@@ -18210,9 +18014,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_EGGS_tbl')]",
@@ -18231,9 +18033,7 @@
 					"table": "EGGS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_EWS_csv')]",
@@ -18333,9 +18133,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_EWS_tbl')]",
@@ -18354,9 +18152,7 @@
 					"table": "EWS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE2_csv')]",
@@ -18500,9 +18296,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE2_tbl')]",
@@ -18521,9 +18315,7 @@
 					"table": "FISHTYPE2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE_csv')]",
@@ -18667,9 +18459,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE_tbl')]",
@@ -18688,9 +18478,7 @@
 					"table": "FISHTYPE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_FLDSURGE_csv')]",
@@ -18802,9 +18590,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_FLDSURGE_tbl')]",
@@ -18823,9 +18609,7 @@
 					"table": "FLDSURGE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_HLTHFAC_csv')]",
@@ -18941,9 +18725,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_HLTHFAC_tbl')]",
@@ -18962,9 +18744,7 @@
 					"table": "HLTHFAC"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_HMPROF_csv')]",
@@ -19900,9 +19680,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_HMPROF_tbl')]",
@@ -19921,9 +19699,7 @@
 					"table": "HMPROF"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT2_csv')]",
@@ -20059,9 +19835,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT2_tbl')]",
@@ -20080,9 +19854,7 @@
 					"table": "MEAT2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT_csv')]",
@@ -20218,9 +19990,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT_tbl')]",
@@ -20239,9 +20009,7 @@
 					"table": "MEAT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MINSTYPE_csv')]",
@@ -20349,9 +20117,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MINSTYPE_tbl')]",
@@ -20370,9 +20136,7 @@
 					"table": "MINSTYPE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MMPROF_csv')]",
@@ -20896,9 +20660,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MMPROF_tbl')]",
@@ -20917,9 +20679,7 @@
 					"table": "MMPROF"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MPWDTYPE_csv')]",
@@ -21031,9 +20791,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_MPWDTYPE_tbl')]",
@@ -21052,9 +20810,7 @@
 					"table": "MPWDTYPE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG10_FIES_csv')]",
@@ -21102,9 +20858,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG10_FIES_tbl')]",
@@ -21123,9 +20877,7 @@
 					"table": "SDG10_FIES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG11_Housing_csv')]",
@@ -21169,9 +20921,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG11_Housing_tbl')]",
@@ -21190,9 +20940,7 @@
 					"table": "SDG11_Housing"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG12_SWM_csv')]",
@@ -21240,9 +20988,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG12_SWM_tbl')]",
@@ -21261,9 +21007,7 @@
 					"table": "SDG12_SWM"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG13_CLUP_csv')]",
@@ -21319,9 +21063,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG13_CLUP_tbl')]",
@@ -21340,9 +21082,7 @@
 					"table": "SDG13_CLUP"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG14_Protected_Waters_csv')]",
@@ -21406,9 +21146,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG14_Protected_Waters_tbl')]",
@@ -21427,9 +21165,7 @@
 					"table": "SDG14_Protected_Waters"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG15_Forest_Coverage_csv')]",
@@ -21477,9 +21213,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG15_Forest_Coverage_tbl')]",
@@ -21498,9 +21232,7 @@
 					"table": "SDG15_Forest_Coverage"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG16_2009-2018_IRA_Dependency_csv')]",
@@ -21592,9 +21324,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG16_2009-2018_IRA_Dependency_tbl')]",
@@ -21613,9 +21343,7 @@
 					"table": "SDG16_2009-2018_IRA_Dependency"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG17_Sister_Cities_csv')]",
@@ -21675,9 +21403,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG17_Sister_Cities_tbl')]",
@@ -21696,9 +21422,7 @@
 					"table": "SDG17_Sister_Cities"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG1_2009-2015_Poverty_Incidence_csv')]",
@@ -21770,9 +21494,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG1_2009-2015_Poverty_Incidence_tbl')]",
@@ -21791,9 +21513,7 @@
 					"table": "SDG1_2009-2015_Poverty_Incidence"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG2_OTP_2017_Underweight_csv')]",
@@ -21881,9 +21601,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG2_OTP_2017_Underweight_tbl')]",
@@ -21902,9 +21620,7 @@
 					"table": "SDG2_OTP_2017_Underweight"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG3_2018_Births_By_Attendant_csv')]",
@@ -21988,9 +21704,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG3_2018_Births_By_Attendant_tbl')]",
@@ -22009,9 +21723,7 @@
 					"table": "SDG3_2018_Births_By_Attendant"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG4_School_Age_csv')]",
@@ -22087,9 +21799,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG4_School_Age_tbl')]",
@@ -22108,9 +21818,7 @@
 					"table": "SDG4_School_Age"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_csv')]",
@@ -22190,9 +21898,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_tbl')]",
@@ -22211,9 +21917,7 @@
 					"table": "SDG5_Gender_Proportion_of_Elected_Officials"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG6_WaterSupply_csv')]",
@@ -22289,9 +21993,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG6_WaterSupply_tbl')]",
@@ -22310,9 +22012,7 @@
 					"table": "SDG6_WaterSupply"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG7_Electricity_csv')]",
@@ -22360,9 +22060,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG7_Electricity_tbl')]",
@@ -22381,9 +22079,7 @@
 					"table": "SDG7_Electricity"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG8_2019_Employment_csv')]",
@@ -22447,9 +22143,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG8_2019_Employment_tbl')]",
@@ -22468,9 +22162,7 @@
 					"table": "SDG8_2019_Employment"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG9_Manufacturing_Percent_csv')]",
@@ -22550,9 +22242,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG9_Manufacturing_Percent_tbl')]",
@@ -22571,9 +22261,7 @@
 					"table": "SDG9_Manufacturing_Percent"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_TRANSPO2_csv')]",
@@ -22689,9 +22377,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_TRANSPO2_tbl')]",
@@ -22710,9 +22396,7 @@
 					"table": "TRANSPO2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_TRANSPO_csv')]",
@@ -22828,9 +22512,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_TRANSPO_tbl')]",
@@ -22849,9 +22531,7 @@
 					"table": "TRANSPO"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_WASTE2_csv')]",
@@ -22963,9 +22643,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_WASTE2_tbl')]",
@@ -22984,9 +22662,7 @@
 					"table": "WASTE2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_WASTE_csv')]",
@@ -23098,9 +22774,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_WASTE_tbl')]",
@@ -23119,9 +22793,7 @@
 					"table": "WASTE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_devlive_feedback_csv')]",
@@ -23165,9 +22837,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_devlive_feedback_tbl')]",
@@ -23186,9 +22856,7 @@
 					"table": "devlive_feedback"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_devlive_projects_csv')]",
@@ -23308,9 +22976,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_devlive_projects_tbl')]",
@@ -23329,9 +22995,7 @@
 					"table": "devlive_projects"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_logod_responses_v2_csv')]",
@@ -23379,9 +23043,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_logod_responses_v2_tbl')]",
@@ -23400,9 +23062,7 @@
 					"table": "logod_responses_v2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_ppms_psgc_v1_csv')]",
@@ -23530,9 +23190,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_ppms_psgc_v1_tbl')]",
@@ -23551,71 +23209,7 @@
 					"table": "ppms_psgc_v1"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_dashboard_csv')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "undpdigitalopendatastore",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "undpph_sdg_dashboard_data.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/SDG Dashboard",
-						"container": "phl-prog"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "REG_PSGC",
-						"type": "String"
-					},
-					{
-						"name": "REGION",
-						"type": "String"
-					},
-					{
-						"name": "PROV_PSGC",
-						"type": "String"
-					},
-					{
-						"name": "PROVINCE",
-						"type": "String"
-					},
-					{
-						"name": "MUNCITY_PSGC",
-						"type": "String"
-					},
-					{
-						"name": "MUNCITY_NAME",
-						"type": "String"
-					},
-					{
-						"name": "variable",
-						"type": "String"
-					},
-					{
-						"name": "value",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_dashboard_data_csv')]",
@@ -23675,9 +23269,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_dashboard_data_tbl')]",
@@ -23696,30 +23288,7 @@
 					"table": "sdg_dashboard_data"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_dashboard_tbl')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "db_phl_prog",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "sdg_dashboard"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_targets_csv')]",
@@ -23771,9 +23340,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_sdg_targets_tbl')]",
@@ -23792,9 +23359,7 @@
 					"table": "sdg_targets"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_sdgourbiz_csv')]",
@@ -23902,9 +23467,7 @@
 					}
 				]
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_sdgourbiz_tbl')]",
@@ -23923,34 +23486,6 @@
 					"table": "sdgourbiz"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/db_phl_opr')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('db_phl_opr_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/db_phl_prog')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('db_phl_prog_connectionString')]"
-				}
-			},
 			"dependsOn": []
 		},
 		{
@@ -23961,10 +23496,10 @@
 				"annotations": [],
 				"type": "AzureMLService",
 				"typeProperties": {
-					"subscriptionId": "[parameters('undpdigitalml_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('undpdigitalml_properties_typeProperties_resourceGroupName')]",
+					"subscriptionId": "1c766f37-8740-4764-932c-bf96cbb29a39",
+					"resourceGroupName": "undpdigitalml",
 					"mlWorkspaceName": "undpdigitalmlws",
-					"servicePrincipalId": "[parameters('undpdigitalml_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalId": "814c3c10-455e-4b6f-935b-0554d5f32db0",
 					"servicePrincipalKey": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
@@ -23973,47 +23508,10 @@
 						},
 						"secretName": "spundpdigitalmlws"
 					},
-					"tenant": "[parameters('undpdigitalml_properties_typeProperties_tenant')]"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/undpdigitalopendata')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('undpdigitalopendata_properties_typeProperties_baseUrl')]"
+					"tenant": "b3e5db5e-2944-4837-99f5-7488ace54319"
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/undpdigitalopendatastore')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "undpdigitalopendata",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "[parameters('undpdigitalopendatastore_properties_typeProperties_connectionString_secretName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendata')]"
-			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_opr_trigger')]",
@@ -24027,7 +23525,7 @@
 				"typeProperties": {
 					"blobPathBeginsWith": "/phl-opr/blobs/",
 					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('phl_opr_trigger_properties_typeProperties_scope')]",
+					"scope": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]
@@ -24047,7 +23545,7 @@
 				"typeProperties": {
 					"blobPathBeginsWith": "/phl-prog/blobs/",
 					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('phl_prog_trigger_properties_typeProperties_scope')]",
+					"scope": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]

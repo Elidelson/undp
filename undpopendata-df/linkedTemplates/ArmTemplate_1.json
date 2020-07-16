@@ -6,26 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
-		},
-		"db_phl_opr_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'db_phl_opr'"
-		},
-		"db_phl_prog_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'db_phl_prog'"
-		},
-		"undpdigitalopendata_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://undpdigitalopendata.vault.azure.net/"
-		},
-		"phl_opr_trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
-		},
-		"phl_prog_trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		}
 	},
 	"variables": {
@@ -33,86 +13,102 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/db_phl_opr')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureSqlDatabase",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"connectionString": "[parameters('db_phl_opr_connectionString')]"
+					"schema": "dbo",
+					"table": "FISHTYPE"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/db_phl_prog')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_FLDSURGE_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureSqlDatabase",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"connectionString": "[parameters('db_phl_prog_connectionString')]"
+					"schema": "dbo",
+					"table": "FLDSURGE"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/undpdigitalopendata')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_HLTHFAC_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureKeyVault",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"baseUrl": "[parameters('undpdigitalopendata_properties_typeProperties_baseUrl')]"
+					"schema": "dbo",
+					"table": "HLTHFAC"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_opr_trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_HMPROF_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"blobPathBeginsWith": "/phl-opr/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('phl_opr_trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
+					"schema": "dbo",
+					"table": "HMPROF"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT2_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
+				"type": "AzureSqlTable",
+				"schema": [],
 				"typeProperties": {
-					"blobPathBeginsWith": "/phl-prog/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('phl_prog_trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
+					"schema": "dbo",
+					"table": "MEAT2"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM2_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -125,15 +121,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "AQUAFARM2"
+					"table": "MEAT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MINSTYPE_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -146,15 +140,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "AQUAFARM"
+					"table": "MINSTYPE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_CALAMAIDSRC_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MMPROF_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -167,15 +159,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "CALAMAIDSRC"
+					"table": "MMPROF"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_CALAM_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MPWDTYPE_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -188,15 +178,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "CALAM"
+					"table": "MPWDTYPE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_CCDESC2_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG10_FIES_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -209,15 +197,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "CCDESC2"
+					"table": "SDG10_FIES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_CCDESC_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG11_Housing_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -230,15 +216,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "CCDESC"
+					"table": "SDG11_Housing"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_CROPS2_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG12_SWM_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -251,15 +235,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "CROPS2"
+					"table": "SDG12_SWM"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_CROPS_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG13_CLUP_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -272,15 +254,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "CROPS"
+					"table": "SDG13_CLUP"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_DISCUSS_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG14_Protected_Waters_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -293,15 +273,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "DISCUSS"
+					"table": "SDG14_Protected_Waters"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_DPK_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG15_Forest_Coverage_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -314,15 +292,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "DPK"
+					"table": "SDG15_Forest_Coverage"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_DTHSMEM_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG16_2009-2018_IRA_Dependency_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -335,15 +311,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "DTHSMEM"
+					"table": "SDG16_2009-2018_IRA_Dependency"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_ECOLOSS_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG17_Sister_Cities_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -356,15 +330,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "ECOLOSS"
+					"table": "SDG17_Sister_Cities"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_EGGS_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG1_2009-2015_Poverty_Incidence_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -377,15 +349,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "EGGS"
+					"table": "SDG1_2009-2015_Poverty_Incidence"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_EWS_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG2_OTP_2017_Underweight_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -398,15 +368,13 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "EWS"
+					"table": "SDG2_OTP_2017_Underweight"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE2_tbl')]",
+			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG3_2018_Births_By_Attendant_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -419,12 +387,10 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "FISHTYPE2"
+					"table": "SDG3_2018_Births_By_Attendant"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
-			]
+			"dependsOn": []
 		}
 	]
 }
