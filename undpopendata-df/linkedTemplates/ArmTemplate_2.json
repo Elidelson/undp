@@ -33,25 +33,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG4_School_Age_tbl')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "db_phl_prog",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "SDG4_School_Age"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_tbl')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -418,6 +399,112 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM2_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "AQUAFARM2_GRP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "Province_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MunCity_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "__sdc_primary_key",
+						"type": "String"
+					},
+					{
+						"name": "_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "_creator_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_date",
+						"type": "String"
+					},
+					{
+						"name": "_ordinal_number",
+						"type": "String"
+					},
+					{
+						"name": "_parent_auri",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_batched_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "String"
+					},
+					{
+						"name": "_top_level_auri",
+						"type": "String"
+					},
+					{
+						"name": "_uri",
+						"type": "String"
+					},
+					{
+						"name": "aquafarm2lbl",
+						"type": "String"
+					},
+					{
+						"name": "aquafarm2pos",
+						"type": "String"
+					},
+					{
+						"name": "aquafarm2val",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/undpdigitalopendatastore')]"
+			]
 		}
 	]
 }

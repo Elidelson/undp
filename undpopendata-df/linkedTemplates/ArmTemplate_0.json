@@ -22,10 +22,6 @@
 		"phl_opr_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
-		},
-		"phl_prog_trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		}
 	},
 	"variables": {
@@ -84,26 +80,6 @@
 					"blobPathBeginsWith": "/phl-opr/blobs/",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('phl_opr_trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/phl-prog/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('phl_prog_trigger_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]
@@ -420,6 +396,27 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "FISHTYPE2"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/db_phl_prog')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_FISHTYPE_tbl')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "db_phl_prog",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "FISHTYPE"
 				}
 			},
 			"dependsOn": [

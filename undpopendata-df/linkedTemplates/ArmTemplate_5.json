@@ -6,92 +6,16 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "undpopendata-df"
+		},
+		"phl_prog_trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1c766f37-8740-4764-932c-bf96cbb29a39/resourceGroups/undpdipdata/providers/Microsoft.Storage/storageAccounts/undpdigitalopendatastore"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_SDG9_Manufacturing_Percent_csv')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "undpdigitalopendatastore",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "SDG9_Manufacturing_Percent.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
-						"container": "phl-prog"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "REG_PSGC",
-						"type": "String"
-					},
-					{
-						"name": "CODE",
-						"type": "String"
-					},
-					{
-						"name": "REGION",
-						"type": "String"
-					},
-					{
-						"name": "2016_GRDP",
-						"type": "String"
-					},
-					{
-						"name": "2016_MANUFACTURING_GRDP",
-						"type": "String"
-					},
-					{
-						"name": "2017_GRDP",
-						"type": "String"
-					},
-					{
-						"name": "2017_MANUFACTURING_GRDP",
-						"type": "String"
-					},
-					{
-						"name": "2018_GRDP",
-						"type": "String"
-					},
-					{
-						"name": "2018_MANUFACTURING_GRDP",
-						"type": "String"
-					},
-					{
-						"name": "2016_MANUPERCENT",
-						"type": "String"
-					},
-					{
-						"name": "2017_MANUPERCENT",
-						"type": "String"
-					},
-					{
-						"name": "2018_MANUPERCENT",
-						"type": "String"
-					},
-					{
-						"name": "2018_NON_MANUPERCENT",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_TRANSPO2_csv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -9903,7 +9827,6 @@
 				"[concat(variables('factoryId'), '/datasets/phl_prog_sdg_dashboard_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_logod_responses_v2_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_ppms_psgc_v1_csv')]",
-				"[concat(variables('factoryId'), '/datasets/phl_prog_SDG9_Manufacturing_Percent_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_TRANSPO2_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_WASTE2_csv')]"
 			]
@@ -17397,6 +17320,44 @@
 				"[concat(variables('factoryId'), '/datasets/phl_prog_sdg_dashboard_data_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_devlive_feedback_csv')]",
 				"[concat(variables('factoryId'), '/datasets/phl_prog_devlive_projects_csv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "phl_prog_copy_1",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "phl_prog_copy_2",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/phl-prog/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('phl_prog_trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/phl_prog_copy_1')]",
+				"[concat(variables('factoryId'), '/pipelines/phl_prog_copy_2')]"
 			]
 		}
 	]

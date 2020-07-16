@@ -13,110 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM2_csv')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "undpdigitalopendatastore",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "AQUAFARM2_GRP.csv",
-						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
-						"container": "phl-prog"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "municipality",
-						"type": "String"
-					},
-					{
-						"name": "Province_PSGC",
-						"type": "String"
-					},
-					{
-						"name": "MunCity_PSGC",
-						"type": "String"
-					},
-					{
-						"name": "__sdc_primary_key",
-						"type": "String"
-					},
-					{
-						"name": "_creation_date",
-						"type": "String"
-					},
-					{
-						"name": "_creator_uri_user",
-						"type": "String"
-					},
-					{
-						"name": "_last_update_date",
-						"type": "String"
-					},
-					{
-						"name": "_ordinal_number",
-						"type": "String"
-					},
-					{
-						"name": "_parent_auri",
-						"type": "String"
-					},
-					{
-						"name": "_sdc_batched_at",
-						"type": "String"
-					},
-					{
-						"name": "_sdc_extracted_at",
-						"type": "String"
-					},
-					{
-						"name": "_sdc_received_at",
-						"type": "String"
-					},
-					{
-						"name": "_sdc_sequence",
-						"type": "String"
-					},
-					{
-						"name": "_sdc_table_version",
-						"type": "String"
-					},
-					{
-						"name": "_top_level_auri",
-						"type": "String"
-					},
-					{
-						"name": "_uri",
-						"type": "String"
-					},
-					{
-						"name": "aquafarm2lbl",
-						"type": "String"
-					},
-					{
-						"name": "aquafarm2pos",
-						"type": "String"
-					},
-					{
-						"name": "aquafarm2val",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/phl_prog_AQUAFARM_csv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -3254,6 +3150,142 @@
 					},
 					{
 						"name": "meat2val",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/phl_prog_MEAT_csv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "undpdigitalopendatastore",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "MEAT_GRP.csv",
+						"folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+						"container": "phl-prog"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "Province_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "MunCity_PSGC",
+						"type": "String"
+					},
+					{
+						"name": "__sdc_primary_key",
+						"type": "String"
+					},
+					{
+						"name": "_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "_creator_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_date",
+						"type": "String"
+					},
+					{
+						"name": "_last_update_uri_user",
+						"type": "String"
+					},
+					{
+						"name": "_ordinal_number",
+						"type": "String"
+					},
+					{
+						"name": "_parent_auri",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_batched_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_extracted_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_received_at",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_sequence",
+						"type": "String"
+					},
+					{
+						"name": "_sdc_table_version",
+						"type": "String"
+					},
+					{
+						"name": "_top_level_auri",
+						"type": "String"
+					},
+					{
+						"name": "_uri",
+						"type": "String"
+					},
+					{
+						"name": "meat_o",
+						"type": "String"
+					},
+					{
+						"name": "meatcons",
+						"type": "String"
+					},
+					{
+						"name": "meatconskg",
+						"type": "String"
+					},
+					{
+						"name": "meatlbl",
+						"type": "String"
+					},
+					{
+						"name": "meatpos",
+						"type": "String"
+					},
+					{
+						"name": "meatprodcost",
+						"type": "String"
+					},
+					{
+						"name": "meatprodinc",
+						"type": "String"
+					},
+					{
+						"name": "meatsold",
+						"type": "String"
+					},
+					{
+						"name": "meatsoldkg",
+						"type": "String"
+					},
+					{
+						"name": "meatval",
 						"type": "String"
 					}
 				]

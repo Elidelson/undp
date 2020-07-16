@@ -85,9 +85,6 @@
 					},
 					"phl_opr_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('phl_opr_trigger_properties_typeProperties_scope')]"
-					},
-					"phl_prog_trigger_properties_typeProperties_scope": {
-						"value": "[parameters('phl_prog_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -201,6 +198,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"phl_prog_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('phl_prog_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
