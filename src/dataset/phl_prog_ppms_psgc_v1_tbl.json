@@ -1,0 +1,16 @@
+{
+  "name": "phl_prog_ppms_psgc_v1_tbl",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "db_phl_prog",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "AzureSqlTable",
+    "schema": [],
+    "typeProperties": {
+      "schema": "dbo",
+      "table": "ppms_psgc_v1"
+    }
+  }
+}

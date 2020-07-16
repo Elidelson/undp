@@ -1,0 +1,16 @@
+{
+  "name": "phl_prog_SDG12_SWM_tbl",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "db_phl_prog",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "AzureSqlTable",
+    "schema": [],
+    "typeProperties": {
+      "schema": "dbo",
+      "table": "SDG12_SWM"
+    }
+  }
+}

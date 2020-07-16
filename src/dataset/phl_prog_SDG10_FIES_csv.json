@@ -1,0 +1,45 @@
+{
+  "name": "phl_prog_SDG10_FIES_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG10_FIES.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "approx_num_fam_below_ave_inc",
+        "type": "String"
+      },
+      {
+        "name": "Families Total",
+        "type": "String"
+      },
+      {
+        "name": "Prop_Approximate_Below_Avg_Income",
+        "type": "String"
+      }
+    ]
+  }
+}

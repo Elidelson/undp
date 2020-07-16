@@ -1,0 +1,117 @@
+{
+  "name": "phl_prog_devlive_projects_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "devlive_projects.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/DevLive",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "recordId",
+        "type": "String"
+      },
+      {
+        "name": "name",
+        "type": "String"
+      },
+      {
+        "name": "description",
+        "type": "String"
+      },
+      {
+        "name": "referenceNumber",
+        "type": "String"
+      },
+      {
+        "name": "fiscalYear",
+        "type": "String"
+      },
+      {
+        "name": "organizationName",
+        "type": "String"
+      },
+      {
+        "name": "organizationCode",
+        "type": "String"
+      },
+      {
+        "name": "programName",
+        "type": "String"
+      },
+      {
+        "name": "programCode",
+        "type": "String"
+      },
+      {
+        "name": "allocation",
+        "type": "String"
+      },
+      {
+        "name": "status",
+        "type": "String"
+      },
+      {
+        "name": "subStatus",
+        "type": "String"
+      },
+      {
+        "name": "type",
+        "type": "String"
+      },
+      {
+        "name": "subType",
+        "type": "String"
+      },
+      {
+        "name": "regionName",
+        "type": "String"
+      },
+      {
+        "name": "regionPsgcCode",
+        "type": "String"
+      },
+      {
+        "name": "provinceName",
+        "type": "String"
+      },
+      {
+        "name": "provincePsgcCode",
+        "type": "String"
+      },
+      {
+        "name": "municipalityName",
+        "type": "String"
+      },
+      {
+        "name": "municipalityPsgcCode",
+        "type": "String"
+      },
+      {
+        "name": "barangayName",
+        "type": "String"
+      },
+      {
+        "name": "barangayPsgcCode",
+        "type": "String"
+      },
+      {
+        "name": "locationDescription",
+        "type": "String"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "phl_prog_SDG4_School_Age_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG4_School_Age.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "CODE",
+        "type": "String"
+      },
+      {
+        "name": "TOTAL_POOR_6TO30",
+        "type": "String"
+      },
+      {
+        "name": "ELEMENTARY",
+        "type": "String"
+      },
+      {
+        "name": "ELEM_SCHOOLING",
+        "type": "String"
+      },
+      {
+        "name": "HIGHSCHOOL",
+        "type": "String"
+      },
+      {
+        "name": "HIGH_SCHOOLING",
+        "type": "String"
+      },
+      {
+        "name": "COLLEGE",
+        "type": "String"
+      },
+      {
+        "name": "COLG_SCHOOLING",
+        "type": "String"
+      },
+      {
+        "name": "TOTAL_ELEM_HIGH",
+        "type": "String"
+      },
+      {
+        "name": "NOT_SCHOOLING",
+        "type": "String"
+      },
+      {
+        "name": "OSY",
+        "type": "String"
+      }
+    ]
+  }
+}

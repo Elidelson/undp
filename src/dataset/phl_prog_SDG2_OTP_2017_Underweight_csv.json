@@ -1,0 +1,85 @@
+{
+  "name": "phl_prog_SDG2_OTP_2017_Underweight_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG2_OTP_2017_Underweight.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "PROVINCE",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY",
+        "type": "String"
+      },
+      {
+        "name": "TOTAL PS WEIGHTED",
+        "type": "String"
+      },
+      {
+        "name": "NORMAL WEIGHT",
+        "type": "String"
+      },
+      {
+        "name": "UNDERWEIGHT",
+        "type": "String"
+      },
+      {
+        "name": "SEVERELY UNDERWEIGHT",
+        "type": "String"
+      },
+      {
+        "name": "TOTAL UNDERWEIGHT",
+        "type": "String"
+      },
+      {
+        "name": "OVERWEIGHT",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_ALT",
+        "type": "String"
+      },
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROV_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROPORTION_UNDERWEIGHT",
+        "type": "String"
+      }
+    ]
+  }
+}

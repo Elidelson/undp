@@ -1,0 +1,61 @@
+{
+  "name": "phl_prog_SDG8_2019_Employment_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG8_2019_Employment.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "CODE",
+        "type": "String"
+      },
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "TOTAL POPULATION 15 YEARS OLD AND OVER",
+        "type": "String"
+      },
+      {
+        "name": "TOTAL LABOR FORCE",
+        "type": "String"
+      },
+      {
+        "name": "EMPLOYED",
+        "type": "String"
+      },
+      {
+        "name": "UNEMPLOYED",
+        "type": "String"
+      },
+      {
+        "name": "NOT IN THE LABOR FORCE",
+        "type": "String"
+      },
+      {
+        "name": "UNEMPLOYMENT_RATE",
+        "type": "String"
+      }
+    ]
+  }
+}
