@@ -1,0 +1,165 @@
+{
+  "name": "phl_prog_CALAM_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "CALAM_GRP.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/DevLive+",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "municipality",
+        "type": "String"
+      },
+      {
+        "name": "Province_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MunCity_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "__sdc_primary_key",
+        "type": "String"
+      },
+      {
+        "name": "_creation_date",
+        "type": "String"
+      },
+      {
+        "name": "_creator_uri_user",
+        "type": "String"
+      },
+      {
+        "name": "_last_update_date",
+        "type": "String"
+      },
+      {
+        "name": "_last_update_uri_user",
+        "type": "String"
+      },
+      {
+        "name": "_ordinal_number",
+        "type": "String"
+      },
+      {
+        "name": "_parent_auri",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_batched_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_extracted_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_received_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_sequence",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_table_version",
+        "type": "String"
+      },
+      {
+        "name": "_top_level_auri",
+        "type": "String"
+      },
+      {
+        "name": "_uri",
+        "type": "String"
+      },
+      {
+        "name": "calam_o",
+        "type": "String"
+      },
+      {
+        "name": "calamaid",
+        "type": "String"
+      },
+      {
+        "name": "calamaidsrc_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "calamaidsrcct",
+        "type": "String"
+      },
+      {
+        "name": "calamevac",
+        "type": "String"
+      },
+      {
+        "name": "calamevacfrq",
+        "type": "String"
+      },
+      {
+        "name": "calamevacwhr",
+        "type": "String"
+      },
+      {
+        "name": "calamevacwhr_o",
+        "type": "String"
+      },
+      {
+        "name": "calamfrq",
+        "type": "String"
+      },
+      {
+        "name": "calamlbl",
+        "type": "String"
+      },
+      {
+        "name": "calampos",
+        "type": "String"
+      },
+      {
+        "name": "calamval",
+        "type": "String"
+      },
+      {
+        "name": "dths",
+        "type": "String"
+      },
+      {
+        "name": "dthsmem_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "ecoloss_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "ecolossct",
+        "type": "String"
+      },
+      {
+        "name": "loss_o",
+        "type": "String"
+      },
+      {
+        "name": "lossfltr",
+        "type": "String"
+      }
+    ]
+  }
+}

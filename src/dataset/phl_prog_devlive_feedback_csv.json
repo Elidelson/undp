@@ -1,0 +1,41 @@
+{
+  "name": "phl_prog_devlive_feedback_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "devlive_feedback.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/DevLive",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "feedback_id",
+        "type": "String"
+      },
+      {
+        "name": "recordId",
+        "type": "String"
+      },
+      {
+        "name": "satisfaction",
+        "type": "String"
+      },
+      {
+        "name": "sentiment",
+        "type": "String"
+      }
+    ]
+  }
+}

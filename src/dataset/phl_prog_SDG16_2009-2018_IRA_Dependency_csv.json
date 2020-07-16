@@ -1,0 +1,89 @@
+{
+  "name": "phl_prog_SDG16_2009-2018_IRA_Dependency_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG16_2009-2018_IRA_Dependency.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY",
+        "type": "String"
+      },
+      {
+        "name": "2009",
+        "type": "String"
+      },
+      {
+        "name": "2010",
+        "type": "String"
+      },
+      {
+        "name": "2011",
+        "type": "String"
+      },
+      {
+        "name": "2012",
+        "type": "String"
+      },
+      {
+        "name": "2013",
+        "type": "String"
+      },
+      {
+        "name": "2014",
+        "type": "String"
+      },
+      {
+        "name": "2015",
+        "type": "String"
+      },
+      {
+        "name": "2016",
+        "type": "String"
+      },
+      {
+        "name": "2017",
+        "type": "String"
+      },
+      {
+        "name": "2018",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_ALT",
+        "type": "String"
+      },
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      }
+    ]
+  }
+}

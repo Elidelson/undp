@@ -1,0 +1,45 @@
+{
+  "name": "phl_prog_SDG12_SWM_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG12_SWM.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "RES_NUM",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROV_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      }
+    ]
+  }
+}

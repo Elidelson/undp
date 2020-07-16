@@ -1,0 +1,73 @@
+{
+  "name": "phl_prog_SDG6_WaterSupply_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG6_WaterSupply.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "CODE",
+        "type": "String"
+      },
+      {
+        "name": "OWNED_COMMUNITY",
+        "type": "String"
+      },
+      {
+        "name": "SHARED_COMMUNITY",
+        "type": "String"
+      },
+      {
+        "name": "OWNED_PIPED_WELL",
+        "type": "String"
+      },
+      {
+        "name": "SHARED_PIPED_WELL",
+        "type": "String"
+      },
+      {
+        "name": "DUG_WELL",
+        "type": "String"
+      },
+      {
+        "name": "SPRING_RIVER",
+        "type": "String"
+      },
+      {
+        "name": "RAIN",
+        "type": "String"
+      },
+      {
+        "name": "PEDDLER",
+        "type": "String"
+      },
+      {
+        "name": "WO_ACCESS_DRINKING_SOURCES",
+        "type": "String"
+      },
+      {
+        "name": "PERCENT_WITHOUT_ACCESS_TO_WATER",
+        "type": "String"
+      }
+    ]
+  }
+}

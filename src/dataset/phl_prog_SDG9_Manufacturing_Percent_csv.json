@@ -1,0 +1,77 @@
+{
+  "name": "phl_prog_SDG9_Manufacturing_Percent_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG9_Manufacturing_Percent.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "CODE",
+        "type": "String"
+      },
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "2016_GRDP",
+        "type": "String"
+      },
+      {
+        "name": "2016_MANUFACTURING_GRDP",
+        "type": "String"
+      },
+      {
+        "name": "2017_GRDP",
+        "type": "String"
+      },
+      {
+        "name": "2017_MANUFACTURING_GRDP",
+        "type": "String"
+      },
+      {
+        "name": "2018_GRDP",
+        "type": "String"
+      },
+      {
+        "name": "2018_MANUFACTURING_GRDP",
+        "type": "String"
+      },
+      {
+        "name": "2016_MANUPERCENT",
+        "type": "String"
+      },
+      {
+        "name": "2017_MANUPERCENT",
+        "type": "String"
+      },
+      {
+        "name": "2018_MANUPERCENT",
+        "type": "String"
+      },
+      {
+        "name": "2018_NON_MANUPERCENT",
+        "type": "String"
+      }
+    ]
+  }
+}

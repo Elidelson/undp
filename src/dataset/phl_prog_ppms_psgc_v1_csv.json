@@ -1,0 +1,125 @@
+{
+  "name": "phl_prog_ppms_psgc_v1_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "ppms_psgc_v1.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "Project_ID",
+        "type": "String"
+      },
+      {
+        "name": "Grant_ID",
+        "type": "String"
+      },
+      {
+        "name": "Sector_Type",
+        "type": "String"
+      },
+      {
+        "name": "Project_Title",
+        "type": "String"
+      },
+      {
+        "name": "Project_Description",
+        "type": "String"
+      },
+      {
+        "name": "Development_Partner",
+        "type": "String"
+      },
+      {
+        "name": "Executing_Agency",
+        "type": "String"
+      },
+      {
+        "name": "Implementing_Agency",
+        "type": "String"
+      },
+      {
+        "name": "Classification",
+        "type": "String"
+      },
+      {
+        "name": "Original_Currency",
+        "type": "String"
+      },
+      {
+        "name": "Total_Grant_Amount_in_Original_Currency",
+        "type": "String"
+      },
+      {
+        "name": "Project_Start_Date",
+        "type": "String"
+      },
+      {
+        "name": "Project_Original_Closing_Date",
+        "type": "String"
+      },
+      {
+        "name": "Project_Revised_Closing_Date",
+        "type": "String"
+      },
+      {
+        "name": "Sector",
+        "type": "String"
+      },
+      {
+        "name": "Subsector",
+        "type": "String"
+      },
+      {
+        "name": "Region_Name",
+        "type": "String"
+      },
+      {
+        "name": "Province",
+        "type": "String"
+      },
+      {
+        "name": "Grant_Type",
+        "type": "String"
+      },
+      {
+        "name": "Financial_Status",
+        "type": "String"
+      },
+      {
+        "name": "Physical_Status",
+        "type": "String"
+      },
+      {
+        "name": "Remarks",
+        "type": "String"
+      },
+      {
+        "name": "ODA_Type",
+        "type": "String"
+      },
+      {
+        "name": "Valid_Reg",
+        "type": "String"
+      },
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      }
+    ]
+  }
+}

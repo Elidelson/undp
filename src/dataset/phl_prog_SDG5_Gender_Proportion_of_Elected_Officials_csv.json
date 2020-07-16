@@ -1,0 +1,77 @@
+{
+  "name": "phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG5_Gender_Proportion_of_Elected_Officials.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "MUNCITY",
+        "type": "String"
+      },
+      {
+        "name": "PROVINCE",
+        "type": "String"
+      },
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "PERCENTAGE OF MALE MEMBERS OF CITY COUNCIL (2019 ELECTIONS)",
+        "type": "String"
+      },
+      {
+        "name": "PERCENTAGE OF FEMALE MEMBERS OF CITY COUNCIL (2019 ELECTIONS)",
+        "type": "String"
+      },
+      {
+        "name": "NOTABLE FEMALE POLITICIANS",
+        "type": "String"
+      },
+      {
+        "name": "LVM",
+        "type": "String"
+      },
+      {
+        "name": "CLASS",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_ALT",
+        "type": "String"
+      },
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROV_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      }
+    ]
+  }
+}
