@@ -1,0 +1,45 @@
+{
+  "name": "phl_prog_logod_responses_v2_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "logod_responses_v2.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "QID",
+        "type": "String"
+      },
+      {
+        "name": "question",
+        "type": "String"
+      },
+      {
+        "name": "response",
+        "type": "String"
+      },
+      {
+        "name": "response_id",
+        "type": "String"
+      },
+      {
+        "name": "muncity_psgc",
+        "type": "String"
+      }
+    ]
+  }
+}

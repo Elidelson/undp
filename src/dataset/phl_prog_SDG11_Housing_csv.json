@@ -1,0 +1,41 @@
+{
+  "name": "phl_prog_SDG11_Housing_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG11_Housing.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROVINCE",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "squat_prop",
+        "type": "String"
+      }
+    ]
+  }
+}

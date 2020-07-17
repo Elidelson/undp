@@ -1,0 +1,57 @@
+{
+  "name": "phl_prog_SDG17_Sister_Cities_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG17_Sister_Cities.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "CODE",
+        "type": "String"
+      },
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "PROVINCE",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY",
+        "type": "String"
+      },
+      {
+        "name": "SISTER CITIES",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_ALT",
+        "type": "String"
+      }
+    ]
+  }
+}

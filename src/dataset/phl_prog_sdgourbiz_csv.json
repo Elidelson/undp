@@ -1,0 +1,105 @@
+{
+  "name": "phl_prog_sdgourbiz_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "sdgourbiz.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "Conglomorate",
+        "type": "String"
+      },
+      {
+        "name": "Company",
+        "type": "String"
+      },
+      {
+        "name": "Initiative",
+        "type": "String"
+      },
+      {
+        "name": "Narrative",
+        "type": "String"
+      },
+      {
+        "name": "Topics",
+        "type": "String"
+      },
+      {
+        "name": "Aspect",
+        "type": "String"
+      },
+      {
+        "name": "Target",
+        "type": "String"
+      },
+      {
+        "name": "Source",
+        "type": "String"
+      },
+      {
+        "name": "CSR/Core Business",
+        "type": "String"
+      },
+      {
+        "name": "Location",
+        "type": "String"
+      },
+      {
+        "name": "province_name",
+        "type": "String"
+      },
+      {
+        "name": "municity_name",
+        "type": "String"
+      },
+      {
+        "name": "barangay_name",
+        "type": "String"
+      },
+      {
+        "name": "province_name_res",
+        "type": "String"
+      },
+      {
+        "name": "province_code_res",
+        "type": "String"
+      },
+      {
+        "name": "municity_name_res",
+        "type": "String"
+      },
+      {
+        "name": "municity_code_res",
+        "type": "String"
+      },
+      {
+        "name": "barangay_name_res",
+        "type": "String"
+      },
+      {
+        "name": "barangay_code_res",
+        "type": "String"
+      },
+      {
+        "name": "score_res",
+        "type": "String"
+      }
+    ]
+  }
+}

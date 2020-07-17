@@ -1,0 +1,133 @@
+{
+  "name": "phl_prog_MEAT2_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "MEAT2_GRP.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "municipality",
+        "type": "String"
+      },
+      {
+        "name": "Province_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MunCity_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "__sdc_primary_key",
+        "type": "String"
+      },
+      {
+        "name": "_creation_date",
+        "type": "String"
+      },
+      {
+        "name": "_creator_uri_user",
+        "type": "String"
+      },
+      {
+        "name": "_last_update_date",
+        "type": "String"
+      },
+      {
+        "name": "_last_update_uri_user",
+        "type": "String"
+      },
+      {
+        "name": "_ordinal_number",
+        "type": "String"
+      },
+      {
+        "name": "_parent_auri",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_batched_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_extracted_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_received_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_sequence",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_table_version",
+        "type": "String"
+      },
+      {
+        "name": "_top_level_auri",
+        "type": "String"
+      },
+      {
+        "name": "_uri",
+        "type": "String"
+      },
+      {
+        "name": "meat2_o",
+        "type": "String"
+      },
+      {
+        "name": "meat2cons",
+        "type": "String"
+      },
+      {
+        "name": "meat2conskg",
+        "type": "String"
+      },
+      {
+        "name": "meat2lbl",
+        "type": "String"
+      },
+      {
+        "name": "meat2pos",
+        "type": "String"
+      },
+      {
+        "name": "meat2prodcost",
+        "type": "String"
+      },
+      {
+        "name": "meat2prodinc",
+        "type": "String"
+      },
+      {
+        "name": "meat2sold",
+        "type": "String"
+      },
+      {
+        "name": "meat2soldkg",
+        "type": "String"
+      },
+      {
+        "name": "meat2val",
+        "type": "String"
+      }
+    ]
+  }
+}

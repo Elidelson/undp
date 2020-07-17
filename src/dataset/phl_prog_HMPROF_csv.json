@@ -1,0 +1,933 @@
+{
+  "name": "phl_prog_HMPROF_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "HMPROF_GRP.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/DevLive ",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "municipality",
+        "type": "String"
+      },
+      {
+        "name": "Province_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MunCity_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "__sdc_primary_key",
+        "type": "String"
+      },
+      {
+        "name": "_creation_date",
+        "type": "String"
+      },
+      {
+        "name": "_creator_uri_user",
+        "type": "String"
+      },
+      {
+        "name": "_last_update_date",
+        "type": "String"
+      },
+      {
+        "name": "_last_update_uri_user",
+        "type": "String"
+      },
+      {
+        "name": "_ordinal_number",
+        "type": "String"
+      },
+      {
+        "name": "_parent_auri",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_batched_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_extracted_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_received_at",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_sequence",
+        "type": "String"
+      },
+      {
+        "name": "_sdc_table_version",
+        "type": "String"
+      },
+      {
+        "name": "_top_level_auri",
+        "type": "String"
+      },
+      {
+        "name": "_uri",
+        "type": "String"
+      },
+      {
+        "name": "consent",
+        "type": "String"
+      },
+      {
+        "name": "hhpos",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_cook",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_cook_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_elec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_elec_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_hlthfac_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_hlthfacct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_hlthind",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_othwtrsrc",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_toil",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_toil_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_toiluse",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_transpo_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_transpoct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_treatsick",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_waste_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_wastect",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_wtr",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_wtrdist",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_ynottreat",
+        "type": "String"
+      },
+      {
+        "name": "proceed_bserv_grp_ynottreat_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_ccact",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_ccact_desc",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_ccaware",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_cccause",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_ccdesc_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_ccdescct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_cchwaffect",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_cchwaffect_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_ccmit",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_concerncc",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_drought",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_droughthwlong",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_exgovplan",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_flood",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_govplan",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_sealevel",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_storm",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_temp",
+        "type": "String"
+      },
+      {
+        "name": "proceed_cca_grp_wtrsup",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_armed",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_displaced",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_goback",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_marawi_marawihwlongmos",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_marawi_marawihwlongyrs",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_marawi_recentadd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_marawi_whendisplaced",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_marawi_whendisplaced_raw",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_plangoback",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_return",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_settled",
+        "type": "String"
+      },
+      {
+        "name": "proceed_diplacement_support",
+        "type": "String"
+      },
+      {
+        "name": "proceed_discuss_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_discussct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_displanind",
+        "type": "String"
+      },
+      {
+        "name": "proceed_disprep",
+        "type": "String"
+      },
+      {
+        "name": "proceed_dpk_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_dpkct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_dpkfltr",
+        "type": "String"
+      },
+      {
+        "name": "proceed_dpklast",
+        "type": "String"
+      },
+      {
+        "name": "proceed_drr_grp_calam_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_drr_grp_calamct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_drrorient",
+        "type": "String"
+      },
+      {
+        "name": "proceed_drrpart",
+        "type": "String"
+      },
+      {
+        "name": "proceed_drrpartlvl",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_agriassets_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_agriassetsct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_agriprodarea_grp_agriprodarea",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_agriprodarea_grp_agriprodareaunit",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_agriprodtenur",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_agriprodtenur_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_crops_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_crops_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_agri_grp_cropsct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_aquafarm_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_aquafarmarea",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_aquafarmct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_boats_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_boatsct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_fishact",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_fishtype_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_fishtypect",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_fshgear_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_fish_grp_fshgearct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_eggs_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_eggsct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_lvstkprodarea",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_lvstkprodtenur",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_lvstkprodtenur_o",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_meat_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_meatct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_milk_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_entrep_grp_lvstk_grp_milkct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_ews",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_community",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_community_inc_community_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_community_inc_community_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_construction",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_construction_inc_construction_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_construction_inc_construction_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_forestry",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_forestry_inc_forestry_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_forestry_inc_forestry_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_manufacturing",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_manufacturing_inc_manufacturing_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_manufacturing_inc_manufacturing_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_mining",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_mining_inc_mining_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_mining_inc_mining_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othractivities",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othractivities_inc_othractivities_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othractivities_inc_othractivities_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_1_grp_othrsrc_1_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_1_grp_othrsrc_1_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_2_grp_othrsrc_2_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_2_grp_othrsrc_2_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_3_grp_othrsrc_3_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_3_grp_othrsrc_3_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_4_grp_othrsrc_4_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_4_grp_othrsrc_4_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_5_grp_othrsrc_5_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_5_grp_othrsrc_5_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_6_grp_othrsrc_6_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_6_grp_othrsrc_6_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_7_grp_othrsrc_7_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_7_grp_othrsrc_7_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_8_grp_othrsrc_8_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_8_grp_othrsrc_8_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_9_grp_othrsrc_9_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_othrsrc_9_grp_othrsrc_9_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_transportation",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_transportation_inc_transportation_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_transportation_inc_transportation_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_wholesale",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_wholesale_inc_wholesale_csh",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhinc_grp_wholesale_inc_wholesale_knd",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhmmct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hhtenant",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hprod",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hunger",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hunger_grp_month1",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hunger_grp_month1days",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hunger_grp_month2days",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hunger_grp_month3days",
+        "type": "String"
+      },
+      {
+        "name": "proceed_hwprep",
+        "type": "String"
+      },
+      {
+        "name": "proceed_imptdrent",
+        "type": "String"
+      },
+      {
+        "name": "proceed_meetneeds",
+        "type": "String"
+      },
+      {
+        "name": "proceed_mmnames_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_mmprof_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_numheads",
+        "type": "String"
+      },
+      {
+        "name": "proceed_progs_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_progsct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_resp",
+        "type": "String"
+      },
+      {
+        "name": "proceed_risk",
+        "type": "String"
+      },
+      {
+        "name": "proceed_shelter",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_brgyass",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_brgyassattend",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_brgyassfrg",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_famact_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_famactct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_localconf_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_localconfct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_prob_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_solvebrgy_grp_count",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_commact_grp_solvebrgyct",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_alert",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov1_grp_gov1",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov1_grp_gov1_satis",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov2_grp_gov2",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov2_grp_gov2_satis",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov3_grp_gov3",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov3_grp_gov3_satis",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov4_grp_gov4",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov4_grp_gov4_satis",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov5_grp_gov5",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov5_grp_gov5_satis",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov6_grp_gov6",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_gov6_grp_gov6_satis",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_help",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_notrust",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl10_grp_people10",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl10_grp_people10_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl11_grp_people11",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl11_grp_people11_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl12_grp_people12",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl12_grp_people12_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl13_grp_people13",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl13_grp_people13_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl1_grp_people1",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl1_grp_people1_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl2_grp_people2",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl2_grp_people2_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl3_grp_people3",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl3_grp_people3_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl4_grp_people4",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl4_grp_people4_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl5_grp_people5",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl5_grp_people5_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl6_grp_people6",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl6_grp_people6_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl7_grp_people7",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl7_grp_people7_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl8_grp_people8",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl8_grp_people8_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl9_grp_people9",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_ppl9_grp_people9_incdec",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_trust",
+        "type": "String"
+      },
+      {
+        "name": "proceed_soccap_grp_soccoh_willing2help",
+        "type": "String"
+      },
+      {
+        "name": "proceed_ydisprep",
+        "type": "String"
+      }
+    ]
+  }
+}

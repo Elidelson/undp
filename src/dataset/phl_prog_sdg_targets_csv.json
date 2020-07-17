@@ -1,0 +1,49 @@
+{
+  "name": "phl_prog_sdg_targets_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "sdg_targets.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDGourBIZ",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "goal_number",
+        "type": "String"
+      },
+      {
+        "name": "goal_description",
+        "type": "String"
+      },
+      {
+        "name": "target_number",
+        "type": "String"
+      },
+      {
+        "name": "target_description",
+        "type": "String"
+      },
+      {
+        "name": "indicator_number",
+        "type": "String"
+      },
+      {
+        "name": "indicator_description",
+        "type": "String"
+      }
+    ]
+  }
+}

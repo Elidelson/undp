@@ -1,0 +1,45 @@
+{
+  "name": "phl_prog_SDG7_Electricity_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG7_Electricity.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "CODE",
+        "type": "String"
+      },
+      {
+        "name": "W_ELECTRICITY",
+        "type": "String"
+      },
+      {
+        "name": "WO_ELECTRICTY",
+        "type": "String"
+      },
+      {
+        "name": "PROPORTION_WITHOUT_ELECTRICITY",
+        "type": "String"
+      }
+    ]
+  }
+}

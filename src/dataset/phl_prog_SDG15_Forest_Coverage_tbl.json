@@ -1,0 +1,16 @@
+{
+  "name": "phl_prog_SDG15_Forest_Coverage_tbl",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "db_phl_prog",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "AzureSqlTable",
+    "schema": [],
+    "typeProperties": {
+      "schema": "dbo",
+      "table": "SDG15_Forest_Coverage"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "phl_prog_SDG5_Gender_Proportion_of_Elected_Officials_tbl",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "db_phl_prog",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "AzureSqlTable",
+    "schema": [],
+    "typeProperties": {
+      "schema": "dbo",
+      "table": "SDG5_Gender_Proportion_of_Elected_Officials"
+    }
+  }
+}

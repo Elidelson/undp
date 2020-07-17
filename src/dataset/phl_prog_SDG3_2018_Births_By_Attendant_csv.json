@@ -1,0 +1,81 @@
+{
+  "name": "phl_prog_SDG3_2018_Births_By_Attendant_csv",
+  "properties": {
+    "linkedServiceName": {
+      "referenceName": "undpdigitalopendatastore",
+      "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "DelimitedText",
+    "typeProperties": {
+      "location": {
+        "type": "AzureBlobStorageLocation",
+        "fileName": "SDG3_2018_Births_By_Attendant.csv",
+        "folderPath": "Shared Documents/Technical/Programme Data/SDG Data",
+        "container": "phl-prog"
+      },
+      "columnDelimiter": ",",
+      "escapeChar": "\\",
+      "firstRowAsHeader": true,
+      "quoteChar": "\""
+    },
+    "schema": [
+      {
+        "name": "REGION",
+        "type": "String"
+      },
+      {
+        "name": "PROVINCE",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY",
+        "type": "String"
+      },
+      {
+        "name": "HEALTH PROFESSIONAL",
+        "type": "String"
+      },
+      {
+        "name": "TRADITIONAL BIRTH ATTENDANTS",
+        "type": "String"
+      },
+      {
+        "name": "OTHERS",
+        "type": "String"
+      },
+      {
+        "name": "NOT STATED",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_NAME",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_ALT",
+        "type": "String"
+      },
+      {
+        "name": "REG_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROV_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "MUNCITY_PSGC",
+        "type": "String"
+      },
+      {
+        "name": "PROPORTION_HEALTH_PROFESSIONAL",
+        "type": "String"
+      },
+      {
+        "name": "PROPORTION_NOT_HEALTH_PROFESSIONAL",
+        "type": "String"
+      }
+    ]
+  }
+}

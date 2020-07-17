@@ -2,11 +2,17 @@
 	"name": "phl_prog_trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "phl_prog",
+					"referenceName": "phl_prog_copy_1",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "phl_prog_copy_2",
 					"type": "PipelineReference"
 				}
 			}
